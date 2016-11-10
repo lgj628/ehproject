@@ -25,5 +25,6 @@
   <modules>
     <module>eh-weixin</module>
     <module>school-weixin</module>
+    <module>eh-common</module>
   </modules>
 </project>
