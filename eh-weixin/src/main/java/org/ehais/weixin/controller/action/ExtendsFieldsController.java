@@ -3,10 +3,8 @@ package org.ehais.weixin.controller.action;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.ehais.common.Constants;
 import org.ehais.controller.CommonController;
 import org.ehais.tools.ReturnObject;
-import org.ehais.weixin.model.HaiArticle;
 import org.ehais.weixin.service.weixin.ExtendsFieldsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

@@ -9,7 +9,7 @@
                 driverClassName="com.mysql.jdbc.Driver"   
                 url="jdbc:mysql://127.0.0.1:3306/ehproject?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull"   
                 username="root"   
-                password="42016048"   
+                password=""   
                 maxActive="20"   
                 maxIdle="10"   
                 maxWait="10000"/>  

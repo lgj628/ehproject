@@ -7,16 +7,16 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.ehais.mapper.EHaiArticleMapper;
+import org.ehais.model.EHaiArticle;
 import org.ehais.tools.ReturnObject;
 import org.ehais.weixin.cache.WXPublicCacheManager;
 import org.ehais.weixin.mapper.EOrderMapper;
-import org.ehais.weixin.mapper.HaiArticleMapper;
 import org.ehais.weixin.mapper.WpCustomMenuMapper;
 import org.ehais.weixin.mapper.WpKeywordMapper;
 import org.ehais.weixin.mapper.WxNotityPayMapper;
 import org.ehais.weixin.mapper.WxUnifiedorderMapper;
 import org.ehais.weixin.mapper.WxUnifiedorderResultMapper;
-import org.ehais.weixin.model.HaiArticle;
 import org.ehais.weixin.model.PublicAddonConfig;
 import org.ehais.weixin.model.WeiXinArticles;
 import org.ehais.weixin.model.WeiXinArticlesItem;
@@ -53,7 +53,7 @@ public class WeiXinServiceImpl extends WeiXinCommonServiceImpl implements WeiXin
 	@Autowired
 	private WpKeywordMapper wpKeywordMapper;
 	@Autowired
-	private HaiArticleMapper haiArticleMapper;
+	private EHaiArticleMapper eHaiArticleMapper;
 
 	public ReturnObject<Object> wxIndex(Integer wxid) throws Exception {
 		// TODO Auto-generated method stub
@@ -174,7 +174,8 @@ public class WeiXinServiceImpl extends WeiXinCommonServiceImpl implements WeiXin
 		//回复文章部分
 		if(k.getExtraText().equals("custom_reply_mult") || k.getExtraText().equals("article_mult")){
 			
-			List<HaiArticle> articleList = haiArticleMapper.article_mult_list(wpPublic.getId(), k.getMultIds(),0,10);
+//			List<EHaiArticle> articleList = eHaiArticleMapper.article_mult_list(wpPublic.getId(), k.getMultIds(),0,10);
+			List<EHaiArticle> articleList = eHaiArticleMapper.hai_article_list(wpPublic.getId(), 0, 10);
 			
 			WeiXinArticles article = new WeiXinArticles();
 			article.setToUserName(notity.getFromUserName());
@@ -189,7 +190,7 @@ public class WeiXinServiceImpl extends WeiXinCommonServiceImpl implements WeiXin
 					+ request.getServerName() + ":"
 					+ request.getLocalPort();
 		
-			for (HaiArticle haiArticle : articleList) {
+			for (EHaiArticle haiArticle : articleList) {
 				WeiXinArticlesItem item = new WeiXinArticlesItem();
 				item.setTitle(haiArticle.getTitle());
 				item.setDescription(haiArticle.getDescription());
