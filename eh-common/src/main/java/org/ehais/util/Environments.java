@@ -7,25 +7,16 @@ package org.ehais.util;
  */
 public class Environments {
 	
-	private String jdbcUrl;
-	private Integer store_id;
+	private Integer storeId;
 
-	public String getJdbcUrl() {
-		return jdbcUrl;
+	public Integer getStoreId() {
+		return storeId;
 	}
 
-	public void setJdbcUrl(String jdbcUrl) {
-		this.jdbcUrl = jdbcUrl;
+	public void setStoreId(Integer storeId) {
+		this.storeId = storeId;
 	}
 
-	public Integer getStore_id() {
-		return store_id;
-	}
-
-	public void setStore_id(Integer store_id) {
-		this.store_id = store_id;
-	}
-	
 	
 
 }
